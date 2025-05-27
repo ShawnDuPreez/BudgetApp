@@ -49,23 +49,24 @@ public final class TransactionDao_Impl implements TransactionDao {
       @Override
       @NonNull
       protected String createQuery() {
-        return "INSERT OR ABORT INTO `transactions` (`id`,`amount`,`description`,`category`,`type`,`date`) VALUES (nullif(?, 0),?,?,?,?,?)";
+        return "INSERT OR ABORT INTO `transactions` (`id`,`userId`,`amount`,`description`,`category`,`type`,`date`) VALUES (nullif(?, 0),?,?,?,?,?,?)";
       }
 
       @Override
       protected void bind(@NonNull final SupportSQLiteStatement statement,
           @NonNull final Transaction entity) {
         statement.bindLong(1, entity.getId());
-        statement.bindDouble(2, entity.getAmount());
-        statement.bindString(3, entity.getDescription());
-        statement.bindString(4, entity.getCategory());
+        statement.bindLong(2, entity.getUserId());
+        statement.bindDouble(3, entity.getAmount());
+        statement.bindString(4, entity.getDescription());
+        statement.bindString(5, entity.getCategory());
         final String _tmp = __converters.fromTransactionType(entity.getType());
-        statement.bindString(5, _tmp);
+        statement.bindString(6, _tmp);
         final Long _tmp_1 = __converters.dateToTimestamp(entity.getDate());
         if (_tmp_1 == null) {
-          statement.bindNull(6);
+          statement.bindNull(7);
         } else {
-          statement.bindLong(6, _tmp_1);
+          statement.bindLong(7, _tmp_1);
         }
       }
     };
@@ -86,31 +87,51 @@ public final class TransactionDao_Impl implements TransactionDao {
       @Override
       @NonNull
       protected String createQuery() {
-        return "UPDATE OR ABORT `transactions` SET `id` = ?,`amount` = ?,`description` = ?,`category` = ?,`type` = ?,`date` = ? WHERE `id` = ?";
+        return "UPDATE OR ABORT `transactions` SET `id` = ?,`userId` = ?,`amount` = ?,`description` = ?,`category` = ?,`type` = ?,`date` = ? WHERE `id` = ?";
       }
 
       @Override
       protected void bind(@NonNull final SupportSQLiteStatement statement,
           @NonNull final Transaction entity) {
         statement.bindLong(1, entity.getId());
-        statement.bindDouble(2, entity.getAmount());
-        statement.bindString(3, entity.getDescription());
-        statement.bindString(4, entity.getCategory());
+        statement.bindLong(2, entity.getUserId());
+        statement.bindDouble(3, entity.getAmount());
+        statement.bindString(4, entity.getDescription());
+        statement.bindString(5, entity.getCategory());
         final String _tmp = __converters.fromTransactionType(entity.getType());
-        statement.bindString(5, _tmp);
+        statement.bindString(6, _tmp);
         final Long _tmp_1 = __converters.dateToTimestamp(entity.getDate());
         if (_tmp_1 == null) {
-          statement.bindNull(6);
+          statement.bindNull(7);
         } else {
-          statement.bindLong(6, _tmp_1);
+          statement.bindLong(7, _tmp_1);
         }
-        statement.bindLong(7, entity.getId());
+        statement.bindLong(8, entity.getId());
       }
     };
   }
 
   @Override
   public Object insert(final Transaction transaction,
+      final Continuation<? super Unit> $completion) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      @Override
+      @NonNull
+      public Unit call() throws Exception {
+        __db.beginTransaction();
+        try {
+          __insertionAdapterOfTransaction.insert(transaction);
+          __db.setTransactionSuccessful();
+          return Unit.INSTANCE;
+        } finally {
+          __db.endTransaction();
+        }
+      }
+    }, $completion);
+  }
+
+  @Override
+  public Object insertTransaction(final Transaction transaction,
       final Continuation<? super Unit> $completion) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
@@ -177,6 +198,7 @@ public final class TransactionDao_Impl implements TransactionDao {
         final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
         try {
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+          final int _cursorIndexOfUserId = CursorUtil.getColumnIndexOrThrow(_cursor, "userId");
           final int _cursorIndexOfAmount = CursorUtil.getColumnIndexOrThrow(_cursor, "amount");
           final int _cursorIndexOfDescription = CursorUtil.getColumnIndexOrThrow(_cursor, "description");
           final int _cursorIndexOfCategory = CursorUtil.getColumnIndexOrThrow(_cursor, "category");
@@ -187,6 +209,8 @@ public final class TransactionDao_Impl implements TransactionDao {
             final Transaction _item;
             final long _tmpId;
             _tmpId = _cursor.getLong(_cursorIndexOfId);
+            final long _tmpUserId;
+            _tmpUserId = _cursor.getLong(_cursorIndexOfUserId);
             final double _tmpAmount;
             _tmpAmount = _cursor.getDouble(_cursorIndexOfAmount);
             final String _tmpDescription;
@@ -210,7 +234,7 @@ public final class TransactionDao_Impl implements TransactionDao {
             } else {
               _tmpDate = _tmp_2;
             }
-            _item = new Transaction(_tmpId,_tmpAmount,_tmpDescription,_tmpCategory,_tmpType,_tmpDate);
+            _item = new Transaction(_tmpId,_tmpUserId,_tmpAmount,_tmpDescription,_tmpCategory,_tmpType,_tmpDate);
             _result.add(_item);
           }
           return _result;
@@ -240,6 +264,7 @@ public final class TransactionDao_Impl implements TransactionDao {
         final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
         try {
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+          final int _cursorIndexOfUserId = CursorUtil.getColumnIndexOrThrow(_cursor, "userId");
           final int _cursorIndexOfAmount = CursorUtil.getColumnIndexOrThrow(_cursor, "amount");
           final int _cursorIndexOfDescription = CursorUtil.getColumnIndexOrThrow(_cursor, "description");
           final int _cursorIndexOfCategory = CursorUtil.getColumnIndexOrThrow(_cursor, "category");
@@ -250,6 +275,8 @@ public final class TransactionDao_Impl implements TransactionDao {
             final Transaction _item;
             final long _tmpId;
             _tmpId = _cursor.getLong(_cursorIndexOfId);
+            final long _tmpUserId;
+            _tmpUserId = _cursor.getLong(_cursorIndexOfUserId);
             final double _tmpAmount;
             _tmpAmount = _cursor.getDouble(_cursorIndexOfAmount);
             final String _tmpDescription;
@@ -273,7 +300,7 @@ public final class TransactionDao_Impl implements TransactionDao {
             } else {
               _tmpDate = _tmp_3;
             }
-            _item = new Transaction(_tmpId,_tmpAmount,_tmpDescription,_tmpCategory,_tmpType,_tmpDate);
+            _item = new Transaction(_tmpId,_tmpUserId,_tmpAmount,_tmpDescription,_tmpCategory,_tmpType,_tmpDate);
             _result.add(_item);
           }
           return _result;
@@ -294,6 +321,112 @@ public final class TransactionDao_Impl implements TransactionDao {
     final String _sql = "SELECT SUM(amount) FROM transactions WHERE type = ?";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
     int _argIndex = 1;
+    final String _tmp = __converters.fromTransactionType(type);
+    _statement.bindString(_argIndex, _tmp);
+    return __db.getInvalidationTracker().createLiveData(new String[] {"transactions"}, false, new Callable<Double>() {
+      @Override
+      @Nullable
+      public Double call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final Double _result;
+          if (_cursor.moveToFirst()) {
+            final Double _tmp_1;
+            if (_cursor.isNull(0)) {
+              _tmp_1 = null;
+            } else {
+              _tmp_1 = _cursor.getDouble(0);
+            }
+            _result = _tmp_1;
+          } else {
+            _result = null;
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+        }
+      }
+
+      @Override
+      protected void finalize() {
+        _statement.release();
+      }
+    });
+  }
+
+  @Override
+  public LiveData<List<Transaction>> getTransactionsForUser(final long userId) {
+    final String _sql = "SELECT * FROM transactions WHERE userId = ? ORDER BY date DESC";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    _statement.bindLong(_argIndex, userId);
+    return __db.getInvalidationTracker().createLiveData(new String[] {"transactions"}, false, new Callable<List<Transaction>>() {
+      @Override
+      @Nullable
+      public List<Transaction> call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+          final int _cursorIndexOfUserId = CursorUtil.getColumnIndexOrThrow(_cursor, "userId");
+          final int _cursorIndexOfAmount = CursorUtil.getColumnIndexOrThrow(_cursor, "amount");
+          final int _cursorIndexOfDescription = CursorUtil.getColumnIndexOrThrow(_cursor, "description");
+          final int _cursorIndexOfCategory = CursorUtil.getColumnIndexOrThrow(_cursor, "category");
+          final int _cursorIndexOfType = CursorUtil.getColumnIndexOrThrow(_cursor, "type");
+          final int _cursorIndexOfDate = CursorUtil.getColumnIndexOrThrow(_cursor, "date");
+          final List<Transaction> _result = new ArrayList<Transaction>(_cursor.getCount());
+          while (_cursor.moveToNext()) {
+            final Transaction _item;
+            final long _tmpId;
+            _tmpId = _cursor.getLong(_cursorIndexOfId);
+            final long _tmpUserId;
+            _tmpUserId = _cursor.getLong(_cursorIndexOfUserId);
+            final double _tmpAmount;
+            _tmpAmount = _cursor.getDouble(_cursorIndexOfAmount);
+            final String _tmpDescription;
+            _tmpDescription = _cursor.getString(_cursorIndexOfDescription);
+            final String _tmpCategory;
+            _tmpCategory = _cursor.getString(_cursorIndexOfCategory);
+            final TransactionType _tmpType;
+            final String _tmp;
+            _tmp = _cursor.getString(_cursorIndexOfType);
+            _tmpType = __converters.toTransactionType(_tmp);
+            final Date _tmpDate;
+            final Long _tmp_1;
+            if (_cursor.isNull(_cursorIndexOfDate)) {
+              _tmp_1 = null;
+            } else {
+              _tmp_1 = _cursor.getLong(_cursorIndexOfDate);
+            }
+            final Date _tmp_2 = __converters.fromTimestamp(_tmp_1);
+            if (_tmp_2 == null) {
+              throw new IllegalStateException("Expected NON-NULL 'java.util.Date', but it was NULL.");
+            } else {
+              _tmpDate = _tmp_2;
+            }
+            _item = new Transaction(_tmpId,_tmpUserId,_tmpAmount,_tmpDescription,_tmpCategory,_tmpType,_tmpDate);
+            _result.add(_item);
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+        }
+      }
+
+      @Override
+      protected void finalize() {
+        _statement.release();
+      }
+    });
+  }
+
+  @Override
+  public LiveData<Double> getTotalAmountByTypeForUser(final long userId,
+      final TransactionType type) {
+    final String _sql = "SELECT SUM(amount) FROM transactions WHERE userId = ? AND type = ?";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 2);
+    int _argIndex = 1;
+    _statement.bindLong(_argIndex, userId);
+    _argIndex = 2;
     final String _tmp = __converters.fromTransactionType(type);
     _statement.bindString(_argIndex, _tmp);
     return __db.getInvalidationTracker().createLiveData(new String[] {"transactions"}, false, new Callable<Double>() {

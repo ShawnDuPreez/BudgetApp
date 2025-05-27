@@ -1,20 +1,30 @@
 R_DEF: Internal format may change without notice
 local
-id addTransactionButton
 id amountEditText
 id amountText
+id appBarLayout
+id btnLogin
+id btnLogout
+id btnRegister
 id categoryEditText
 id categoryText
 id descriptionEditText
 id descriptionText
+id etPassword
+id etUsername
 id expenseRadioButton
 id fab
 id incomeRadioButton
 id toolbar
 id totalBalanceText
 id transactionsRecyclerView
+id tvLoginLink
+id tvRegisterLink
 id typeRadioGroup
+layout activity_landing
+layout activity_login
 layout activity_main
+layout activity_register
 layout dialog_add_transaction
 layout item_transaction
 mipmap ic_launcher

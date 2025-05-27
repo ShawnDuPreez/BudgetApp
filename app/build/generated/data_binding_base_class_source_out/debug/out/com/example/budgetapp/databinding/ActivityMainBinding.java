@@ -4,6 +4,7 @@ package com.example.budgetapp.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.budgetapp.R;
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.MaterialToolbar;
-import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -24,7 +25,10 @@ public final class ActivityMainBinding implements ViewBinding {
   private final CoordinatorLayout rootView;
 
   @NonNull
-  public final MaterialButton addTransactionButton;
+  public final AppBarLayout appBarLayout;
+
+  @NonNull
+  public final Button btnLogout;
 
   @NonNull
   public final FloatingActionButton fab;
@@ -39,11 +43,12 @@ public final class ActivityMainBinding implements ViewBinding {
   public final RecyclerView transactionsRecyclerView;
 
   private ActivityMainBinding(@NonNull CoordinatorLayout rootView,
-      @NonNull MaterialButton addTransactionButton, @NonNull FloatingActionButton fab,
-      @NonNull MaterialToolbar toolbar, @NonNull TextView totalBalanceText,
-      @NonNull RecyclerView transactionsRecyclerView) {
+      @NonNull AppBarLayout appBarLayout, @NonNull Button btnLogout,
+      @NonNull FloatingActionButton fab, @NonNull MaterialToolbar toolbar,
+      @NonNull TextView totalBalanceText, @NonNull RecyclerView transactionsRecyclerView) {
     this.rootView = rootView;
-    this.addTransactionButton = addTransactionButton;
+    this.appBarLayout = appBarLayout;
+    this.btnLogout = btnLogout;
     this.fab = fab;
     this.toolbar = toolbar;
     this.totalBalanceText = totalBalanceText;
@@ -77,9 +82,15 @@ public final class ActivityMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.addTransactionButton;
-      MaterialButton addTransactionButton = ViewBindings.findChildViewById(rootView, id);
-      if (addTransactionButton == null) {
+      id = R.id.appBarLayout;
+      AppBarLayout appBarLayout = ViewBindings.findChildViewById(rootView, id);
+      if (appBarLayout == null) {
+        break missingId;
+      }
+
+      id = R.id.btnLogout;
+      Button btnLogout = ViewBindings.findChildViewById(rootView, id);
+      if (btnLogout == null) {
         break missingId;
       }
 
@@ -107,7 +118,7 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMainBinding((CoordinatorLayout) rootView, addTransactionButton, fab,
+      return new ActivityMainBinding((CoordinatorLayout) rootView, appBarLayout, btnLogout, fab,
           toolbar, totalBalanceText, transactionsRecyclerView);
     }
     String missingId = rootView.getResources().getResourceName(id);

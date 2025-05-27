@@ -1,14 +1,30 @@
 [
     {
+        "merged": "C:\\Users\\v6dri\\.gradle\\daemon\\8.11.1\\com.example.budgetapp-mergeDebugResources-39:\\layout\\activity_landing.xml",
+        "source": "C:\\Users\\v6dri\\.gradle\\daemon\\8.11.1\\com.example.budgetapp-main-42:\\layout\\activity_landing.xml"
+    },
+    {
+        "merged": "C:\\Users\\v6dri\\.gradle\\daemon\\8.11.1\\com.example.budgetapp-mergeDebugResources-39:\\layout\\item_transaction.xml",
+        "source": "C:\\Users\\v6dri\\.gradle\\daemon\\8.11.1\\com.example.budgetapp-main-42:\\layout\\item_transaction.xml"
+    },
+    {
+        "merged": "C:\\Users\\v6dri\\.gradle\\daemon\\8.11.1\\com.example.budgetapp-mergeDebugResources-39:\\layout\\activity_register.xml",
+        "source": "C:\\Users\\v6dri\\.gradle\\daemon\\8.11.1\\com.example.budgetapp-main-42:\\layout\\activity_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\v6dri\\.gradle\\daemon\\8.11.1\\com.example.budgetapp-mergeDebugResources-39:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\v6dri\\.gradle\\daemon\\8.11.1\\com.example.budgetapp-main-42:\\layout\\activity_main.xml"
+    },
+    {
         "merged": "com.example.budgetapp-mergeDebugResources-39:/layout/activity_main.xml",
         "source": "com.example.budgetapp-main-42:/layout/activity_main.xml"
     },
     {
-        "merged": "com.example.budgetapp-mergeDebugResources-39:/layout/dialog_add_transaction.xml",
-        "source": "com.example.budgetapp-main-42:/layout/dialog_add_transaction.xml"
+        "merged": "C:\\Users\\v6dri\\.gradle\\daemon\\8.11.1\\com.example.budgetapp-mergeDebugResources-39:\\layout\\activity_login.xml",
+        "source": "C:\\Users\\v6dri\\.gradle\\daemon\\8.11.1\\com.example.budgetapp-main-42:\\layout\\activity_login.xml"
     },
     {
-        "merged": "com.example.budgetapp-mergeDebugResources-39:/layout/item_transaction.xml",
-        "source": "com.example.budgetapp-main-42:/layout/item_transaction.xml"
+        "merged": "C:\\Users\\v6dri\\.gradle\\daemon\\8.11.1\\com.example.budgetapp-mergeDebugResources-39:\\layout\\dialog_add_transaction.xml",
+        "source": "C:\\Users\\v6dri\\.gradle\\daemon\\8.11.1\\com.example.budgetapp-main-42:\\layout\\dialog_add_transaction.xml"
     }
 ]

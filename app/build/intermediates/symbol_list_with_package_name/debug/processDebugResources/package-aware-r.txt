@@ -3146,7 +3146,6 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
-id addTransactionButton
 id alertTitle
 id aligned
 id all
@@ -3158,6 +3157,7 @@ id animateToEnd
 id animateToStart
 id antiClockwise
 id anticipate
+id appBarLayout
 id arc
 id asConfigured
 id async
@@ -3176,6 +3176,9 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id btnLogin
+id btnLogout
+id btnRegister
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3261,6 +3264,8 @@ id end
 id endToStart
 id enterAlways
 id enterAlwaysCollapsed
+id etPassword
+id etUsername
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -3563,6 +3568,8 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvLoginLink
+id tvRegisterLink
 id typeRadioGroup
 id unchecked
 id uniform
@@ -3702,7 +3709,10 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_landing
+layout activity_login
 layout activity_main
+layout activity_register
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

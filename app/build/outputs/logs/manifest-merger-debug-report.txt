@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:2:1-23:12
+ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:2:1-32:12
 MERGED from [androidx.databinding:viewbinding:8.9.2] C:\Users\v6dri\.gradle\caches\8.11.1\transforms\294fde5e4057eff1bc8083cf6f965707\transformed\jetified-viewbinding-8.9.2\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\v6dri\.gradle\caches\8.11.1\transforms\65c2605868b4a138a6c8a143c99d1f7e\transformed\material-1.11.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\v6dri\.gradle\caches\8.11.1\transforms\f94f977c05a0a253284b68d073f5a152\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
@@ -65,8 +65,8 @@ MERGED from [androidx.print:print:1.0.0] C:\Users\v6dri\.gradle\caches\8.11.1\tr
 	xmlns:android
 		ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:4:5-21:19
-INJECTED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:4:5-21:19
+ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:4:5-30:19
+INJECTED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:4:5-30:19
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\v6dri\.gradle\caches\8.11.1\transforms\65c2605868b4a138a6c8a143c99d1f7e\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\v6dri\.gradle\caches\8.11.1\transforms\65c2605868b4a138a6c8a143c99d1f7e\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\v6dri\.gradle\caches\8.11.1\transforms\f94f977c05a0a253284b68d073f5a152\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -102,21 +102,35 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\v6dri\.gradle\cach
 	android:theme
 		ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:10:9-47
 activity#com.example.budgetapp.MainActivity
-ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:12:9-19:20
+ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:12:9-16:20
 	android:exported
 		ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:14:13-36
 	android:name
 		ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:13:13-41
+activity#com.example.budgetapp.LandingActivity
+ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:18:9-25:20
+	android:exported
+		ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:20:13-36
+	android:name
+		ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:19:13-44
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:15:13-18:29
+ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:21:13-24:29
 action#android.intent.action.MAIN
-ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:16:17-69
+ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:22:17-69
 	android:name
-		ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:16:25-66
+		ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:22:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:17:17-77
+ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:23:17-77
 	android:name
-		ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:17:27-74
+		ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:23:27-74
+activity#com.example.budgetapp.LoginActivity
+ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:27:9-51
+	android:name
+		ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:27:19-48
+activity#com.example.budgetapp.RegisterActivity
+ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:28:9-54
+	android:name
+		ADDED from D:\AndroidStudio\app\src\main\AndroidManifest.xml:28:19-51
 uses-sdk
 INJECTED from D:\AndroidStudio\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\AndroidStudio\app\src\main\AndroidManifest.xml

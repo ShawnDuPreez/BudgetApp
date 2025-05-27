@@ -28,12 +28,20 @@
         <activity
             android:name="com.example.budgetapp.MainActivity"
             android:exported="true" >
+
+            <!-- // ... existing code ... -->
+        </activity>
+        <activity
+            android:name="com.example.budgetapp.LandingActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.budgetapp.LoginActivity" />
+        <activity android:name="com.example.budgetapp.RegisterActivity" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"

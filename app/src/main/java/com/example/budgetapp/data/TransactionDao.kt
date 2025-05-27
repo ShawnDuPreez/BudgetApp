@@ -22,4 +22,13 @@ interface TransactionDao {
 
     @Query("SELECT SUM(amount) FROM transactions WHERE type = :type")
     fun getTotalByType(type: TransactionType): LiveData<Double>
+
+    @Insert
+    suspend fun insertTransaction(transaction: Transaction)
+
+    @Query("SELECT * FROM transactions WHERE userId = :userId ORDER BY date DESC")
+    fun getTransactionsForUser(userId: Long): LiveData<List<Transaction>>
+
+    @Query("SELECT SUM(amount) FROM transactions WHERE userId = :userId AND type = :type")
+    fun getTotalAmountByTypeForUser(userId: Long, type: TransactionType): LiveData<Double>
 } 
