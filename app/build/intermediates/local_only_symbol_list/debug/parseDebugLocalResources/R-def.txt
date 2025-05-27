@@ -1,0 +1,22 @@
+R_DEF: Internal format may change without notice
+local
+id addTransactionButton
+id amountEditText
+id amountText
+id categoryEditText
+id categoryText
+id descriptionEditText
+id descriptionText
+id expenseRadioButton
+id fab
+id incomeRadioButton
+id toolbar
+id totalBalanceText
+id transactionsRecyclerView
+id typeRadioGroup
+layout activity_main
+layout dialog_add_transaction
+layout item_transaction
+mipmap ic_launcher
+mipmap ic_launcher_round
+style Theme.BudgetApp

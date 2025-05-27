@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "com.example.budgetapp-mergeDebugResources-39:/layout/activity_main.xml",
+        "source": "com.example.budgetapp-main-42:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.budgetapp-mergeDebugResources-39:/layout/dialog_add_transaction.xml",
+        "source": "com.example.budgetapp-main-42:/layout/dialog_add_transaction.xml"
+    },
+    {
+        "merged": "com.example.budgetapp-mergeDebugResources-39:/layout/item_transaction.xml",
+        "source": "com.example.budgetapp-main-42:/layout/item_transaction.xml"
+    }
+]

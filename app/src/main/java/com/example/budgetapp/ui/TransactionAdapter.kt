@@ -1,5 +1,6 @@
 package com.example.budgetapp.ui
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import com.example.budgetapp.data.Transaction
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.Locale
+import com.example.budgetapp.data.TransactionType
 
 class TransactionAdapter : ListAdapter<Transaction, TransactionAdapter.TransactionViewHolder>(TransactionDiffCallback()) {
 
@@ -32,6 +34,7 @@ class TransactionAdapter : ListAdapter<Transaction, TransactionAdapter.Transacti
         private val dateFormat = SimpleDateFormat("MMM dd, yyyy", Locale.getDefault())
         private val currencyFormat = NumberFormat.getCurrencyInstance(Locale.getDefault())
 
+        @SuppressLint("SetTextI18n")
         fun bind(transaction: Transaction) {
             descriptionText.text = transaction.description
             categoryText.text = "${transaction.category} • ${dateFormat.format(transaction.date)}"
